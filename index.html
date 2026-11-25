@@ -1,0 +1,161 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>My Gallery</h1>
+  <p>写真とリンクをまとめたページです。</p>
+  <div class="gallery">
+    <img src="images/photo1.jpg" alt="写真1">
+    <img src="images/photo2.jpg" alt="写真2">
+    <img src="images/photo3.jpg" alt="写真3">
+    <img src="images/photo4.jpg" alt="写真4">
+    <img src="images/photo5.jpg" alt="写真5">
+    <img src="images/photo6.jpg" alt="写真6">
+    <img src="images/photo7.jpg" alt="写真7">
+  </div>
+  <script>
+  const photos = document.querySelectorAll(".gallery img");
+
+  photos.forEach(photo => {
+    photo.addEventListener("click", () => {
+      window.open(photo.src, "_blank");
+    });
+  });
+</script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <a href="#" class="logo">MY GALLERY</a>
+    <nav>
+      <a href="#gallery">Gallery</a>
+      <a href="#links">Links</a>
+    </nav>
+  </header>
+
+  <!-- メインタイトル -->
+  <main>
+    <section class="hero">
+      <p class="eyebrow">PHOTO COLLECTION</p>
+      <h1>Memories<br>& Moments.</h1>
+      <p class="description">
+        お気に入りの写真と、共有したいリンクをまとめました。
+      </p>
+    </section>
+
+    <!-- 写真一覧 -->
+    <section id="gallery">
+      <div class="section-heading">
+        <h2>Gallery</h2>
+        <span>01 — 07</span>
+      </div>
+
+      <div class="gallery">
+        <img src="images/photo1.jpg" alt="写真1" class="featured">
+        <img src="images/photo2.jpg" alt="写真2">
+        <img src="images/photo3.jpg" alt="写真3">
+        <img src="images/photo4.jpg" alt="写真4">
+        <img src="images/photo5.jpg" alt="写真5">
+        <img src="images/photo6.jpg" alt="写真6">
+        <img src="images/photo7.jpg" alt="写真7">
+      </div>
+    </section>
+
+    <!-- リンク一覧 -->
+    <section id="links">
+      <div class="section-heading">
+        <h2>Links</h2>
+        <span>USEFUL LINKS</span>
+      </div>
+
+      <div class="link-list">
+        <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
+          <span>Google</span>
+          <span>↗</span>
+        </a>
+
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+          <span>YouTube</span>
+          <span>↗</span>
+        </a>
+
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+          <span>Instagram</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 MY GALLERY</p>
+  </footer>
+
+
+<!-- 写真拡大用の画面 -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightbox-image" src="" alt="拡大写真">
+</div>
+
+<script>
+  const photos = document.querySelectorAll(".gallery img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const closeButton = document.querySelector(".close");
+
+  // 写真をクリックしたとき
+  photos.forEach(photo => {
+    photo.addEventListener("click", () => {
+      lightboxImage.src = photo.src;
+      lightbox.classList.add("active");
+    });
+  });
+
+  // 閉じるボタン
+  closeButton.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+
+  // 写真の外側をクリックしても閉じる
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      lightbox.classList.remove("active");
+    }
+  });
+
+  // Escキーでも閉じる
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      lightbox.classList.remove("active");
+    }
+  });
+</script>
+
+</body>
+
+
+</body>
+</html>
+
