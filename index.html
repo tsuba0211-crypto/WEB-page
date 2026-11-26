@@ -170,6 +170,33 @@
     glow.style.left = event.clientX + "px";
     glow.style.top = event.clientY + "px";
   });
+
+
+/* ===== VISIT COUNTER ===== */
+
+let visitCount = Number(localStorage.getItem("galleryVisits") || 0);
+
+visitCount++;
+
+localStorage.setItem("galleryVisits", visitCount);
+
+console.log("VISIT COUNT:", visitCount);
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (visitCount >= 5) {
+    const secretButton = document.querySelector(".secret-button");
+
+    if (secretButton) {
+      secretButton.classList.add("secret-unlocked");
+    }
+  }
+});
+
+
 </script>
 
 
@@ -183,6 +210,68 @@
 </div>
 
 
+<a
+  href="https://www.nakajimakento.com/"
+  class="secret-button"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="SECRET ACCESS"
+  aria-label="中島健人公式サイト"
+>
+  ✦
+</a>
+
+
+<!-- SECRET MESSAGE -->
+<div class="secret-message" id="secretMessage">
+  <div class="secret-message-content">
+    <span>CONGRATULATIONS</span>
+    <h2>YOU FOUND IT.</h2>
+    <p>
+      ここまで見つけてくれてありがとう。<br>
+      あなたに特別な瞬間を。
+    </p>
+    <button id="closeSecret">CLOSE</button>
+  </div>
+</div>
+
+<!-- ===== 30 VISIT SPECIAL OPENING ===== -->
+<div class="special-opening" id="specialOpening">
+  <div class="special-opening-content">
+    <span>AN UNFORGETTABLE MOMENT</span>
+    <h2>30 TIMES.</h2>
+    <p>Thank you for coming back.</p>
+    <div class="special-line"></div>
+    <p class="special-japanese">30回目の訪問、ありがとう。</p>
+  </div>
+</div>
+
+<script>
+  /* ===== SECRET MESSAGE CONTROL ===== */
+
+  const secretButton = document.querySelector(".secret-button");
+  const secretMessage = document.getElementById("secretMessage");
+  const closeSecret = document.getElementById("closeSecret");
+
+  if (visitCount >= 10) {
+    secretButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      secretMessage.classList.add("active");
+    });
+  }
+
+  closeSecret.addEventListener("click", () => {
+    secretMessage.classList.remove("active");
+  });
+
+  /* ===== 30 VISIT SPECIAL CONTROL ===== */
+
+  const specialOpening = document.getElementById("specialOpening");
+
+  if (visitCount === 30) {
+    specialOpening.style.display = "flex";
+  }
+</script>
 
 </body>
 
