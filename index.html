@@ -70,6 +70,13 @@
         <span>01 — 07</span>
       </div>
 
+
+      <div class="gallery-counter">
+       <span>PHOTO COLLECTION</span>
+       <span class="counter-number">01 <small>/ 07</small></span>
+      </div>
+
+
       <div class="gallery">
         <img src="images/photo1.jpg" alt="写真1" class="featured">
         <img src="images/photo2.jpg" alt="写真2">
@@ -153,9 +160,32 @@
   });
 </script>
 
+
+<div class="mouse-glow"></div>
+
+<script>
+  const glow = document.querySelector(".mouse-glow");
+
+  document.addEventListener("mousemove", (event) => {
+    glow.style.left = event.clientX + "px";
+    glow.style.top = event.clientY + "px";
+  });
+</script>
+
+
+
+<div class="intro-screen">
+  <div class="intro-content">
+    <p>WELCOME TO</p>
+    <h1>THE COLLECTION</h1>
+    <span>EST. 2026</span>
+  </div>
+</div>
+
+
+
 </body>
 
 
-</body>
 </html>
 
