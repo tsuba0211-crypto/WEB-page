@@ -467,3 +467,244 @@ h1 {
   margin: 55px auto 0;
 }
 
+
+/* 高級感のある背景 */
+body {
+  background-color: #080808;
+  background-image:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(150, 150, 150, 0.13) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 0% 55%,
+      rgba(90, 90, 90, 0.07) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 100% 85%,
+      rgba(120, 120, 120, 0.06) 0%,
+      transparent 40%
+    );
+  background-attachment: fixed;
+}
+
+/* セクションの区切りを上品に */
+.section-heading {
+  border-bottom: 1px solid rgba(200, 200, 200, 0.25);
+  position: relative;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 45px;
+  height: 1px;
+  background: #dedede;
+}
+
+
+/* ===== PREMIUM BACKGROUND ===== */
+
+body {
+  background-color: #080808;
+  background-image:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(190, 190, 190, 0.12),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 100% 50%,
+      rgba(120, 120, 120, 0.06),
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      #090909 0%,
+      #101010 45%,
+      #080808 100%
+    );
+  background-attachment: fixed;
+}
+
+/* ===== DECORATIVE TYPOGRAPHY ===== */
+
+.hero {
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "KENTY";
+  position: absolute;
+  z-index: -1;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Georgia, serif;
+  font-size: clamp(65px, 13vw, 170px);
+  letter-spacing: 12px;
+  color: rgba(255, 255, 255, 0.025);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ===== NAVIGATION EFFECT ===== */
+
+nav a {
+  position: relative;
+  padding-bottom: 7px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: #d0d0d0;
+  transition: width 0.35s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== SECTION DECORATION ===== */
+
+.section-heading {
+  border-bottom: 1px solid rgba(200, 200, 200, 0.2);
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 45px;
+  height: 1px;
+  background: #c5c5c5;
+}
+
+/* ===== PREMIUM FOOTER ===== */
+
+footer {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255,255,255,0.025)
+  );
+  letter-spacing: 4px;
+}
+
+
+/* ===== MOUSE GLOW EFFECT ===== */
+
+.mouse-glow {
+  position: fixed;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(200, 200, 200, 0.09) 0%,
+    rgba(200, 200, 200, 0.035) 35%,
+    transparent 70%
+  );
+}
+
+
+/* ===== PHOTO COUNTER ===== */
+
+.gallery-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  color: #999;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.counter-number {
+  color: #eee;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.counter-number small {
+  color: #777;
+  font-size: 12px;
+}
+
+
+/* ===== OPENING INTRO ===== */
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #080808;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: introFadeOut 1.2s ease 3s forwards;
+}
+
+.intro-content {
+  animation: introText 1.5s ease both;
+}
+
+.intro-content p {
+  color: #999;
+  font-size: 11px;
+  letter-spacing: 7px;
+  margin-bottom: 25px;
+}
+
+.intro-content h1 {
+  color: #eee;
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 6vw, 65px);
+  font-weight: normal;
+  letter-spacing: 8px;
+  margin: 0;
+}
+
+.intro-content span {
+  display: block;
+  color: #777;
+  font-size: 10px;
+  letter-spacing: 5px;
+  margin-top: 30px;
+}
+
+@keyframes introText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes introFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
