@@ -96,19 +96,12 @@
       </div>
 
       <div class="link-list">
-        <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
-          <span>Google</span>
-          <span>↗</span>
-        </a>
-
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.youtube.com/@n_kento_official" target="_blank" rel="noopener noreferrer">
           <span>YouTube</span>
-          <span>↗</span>
         </a>
 
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/kento.nakajima_313/" target="_blank" rel="noopener noreferrer">
           <span>Instagram</span>
-          <span>↗</span>
         </a>
       </div>
     </section>
@@ -247,21 +240,28 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <script>
-  /* ===== SECRET MESSAGE CONTROL ===== */
+ /* ===== SECRET MESSAGE CONTROL ===== */
 
-  const secretButton = document.querySelector(".secret-button");
-  const secretMessage = document.getElementById("secretMessage");
-  const closeSecret = document.getElementById("closeSecret");
+ const secretButton = document.querySelector(".secret-button");
+ const secretMessage = document.getElementById("secretMessage");
+ const closeSecret = document.getElementById("closeSecret");
 
-  if (visitCount >= 10) {
-    secretButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      secretMessage.classList.add("active");
-    });
-  }
+ // 初回クリックかどうかを確認
+ secretButton.addEventListener("click", (event) => {
+   const alreadySeen = localStorage.getItem("secretMessageSeen");
+
+   if (!alreadySeen) {
+     event.preventDefault();
+
+     secretMessage.classList.add("active");
+
+     // 初回表示済みとして保存
+     localStorage.setItem("secretMessageSeen", "true");
+   }
+  });
 
   closeSecret.addEventListener("click", () => {
-    secretMessage.classList.remove("active");
+   secretMessage.classList.remove("active");
   });
 
   /* ===== 30 VISIT SPECIAL CONTROL ===== */
